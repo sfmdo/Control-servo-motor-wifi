@@ -19,6 +19,7 @@ enum Mode { MANUAL, WIPER, SEQUENCE, PULSE, RANDOM };
 Mode currentMode = MANUAL;
 
 int actualAngle = 90;
+int lastWrittenAngle = -1;
 int targetAngle = 90;
 
 int angleList[NUM_ANGLES] = {0, 45, 90, 135, 180}; // Ejemplo inicial
@@ -41,6 +42,13 @@ String modeToString(Mode mode) {
     case PULSE: return "Pulso";
     case RANDOM: return "Aleatorio";
     default: return "Desconocido";
+  }
+}
+
+void setServoAngle(int newAngle) {
+  if (newAngle != lastWrittenAngle) {
+    miServo.write(newAngle);
+    lastWrittenAngle = newAngle; // Actualizamos el último ángulo enviado
   }
 }
 
@@ -200,11 +208,11 @@ void loop() {
   if (currentTime - lastMoveTime > moveInterval) {
     if (actualAngle < targetAngle) {
       actualAngle++;
-      miServo.write(actualAngle);
+      setServoAngle(actualAngle);   
       lastMoveTime = currentTime;
     } else if (actualAngle > targetAngle) {
       actualAngle--;
-      miServo.write(actualAngle);
+      setServoAngle(actualAngle);
       lastMoveTime = currentTime;
     }
   }
