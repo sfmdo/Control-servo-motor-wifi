@@ -69,11 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // 3. Lógica del slider de ángulo manual
+    //Lógica del slider de ángulo manual
     angleSlider.addEventListener('input', () => {
         const angle = angleSlider.value;
         sliderValueEl.textContent = angle;
-        // La rotación base es -90 grados para que 0 sea izquierda y 180 derecha
         arrowIndicator.style.transform = `rotate(${angle - 90}deg)`;
     });
 
@@ -82,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         sendCommand({ mode: 'manual', angle: angle });
     });
 
-    // 4. Lógica de los botones de modo
+    //Lógica de los botones de modo
     modeButtons.forEach(button => {
         button.addEventListener('click', () => {
             const mode = button.getAttribute('data-mode');
@@ -90,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 5. Lógica para enviar secuencia
+    //Lógica para enviar secuencia
     sendSequenceBtn.addEventListener('click', () => {
         const angles = sequenceInput.value.trim();
         if (angles) {
@@ -103,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // --- INICIALIZACIÓN ---
     // Iniciar la rotación inicial de la flecha
     arrowIndicator.style.transform = `rotate(0deg)`;
     // Iniciar la consulta periódica del estado

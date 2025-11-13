@@ -16,7 +16,6 @@
 <body>
 
     <div class="container terminal-container my-4">
-        <!-- Encabezado de la Terminal -->
         <div class="terminal-header">
             <div class="header-buttons">
                 <span class="button red"></span>
@@ -25,8 +24,7 @@
             </div>
             <div class="header-title">ESP32 SERVO INTERFACE</div>
         </div>
-
-        <!-- Cuerpo de la Terminal -->
+        
         <div class="terminal-body p-4">
             <!-- Sección de Estado Superior -->
             <div class="status-bar mb-4">
@@ -44,12 +42,12 @@
                 </div>
             </div>
 
-            <!-- Línea separadora -->
+            
             <div class="seperator-line">//-- CONTROL-PANEL --//</div>
 
-            <!-- Contenido Principal (dos columnas) -->
+            <!-- Contenido Principal-->
             <div class="row mt-4">
-                <!-- Columna Izquierda: Control Manual -->
+                <!--Izquierda:Control Manual -->
                 <div class="col-md-6 mb-4">
                     <h5 class="section-title">> Manual Angle Control</h5>
                     <div class="manual-control-panel">
@@ -66,17 +64,17 @@
                     <button id="send-angle-btn" class="btn btn-outline-primary w-100 mt-3">> SET ANGLE</button>
                 </div>
 
-                <!-- Columna Derecha: Modos y Secuencia -->
+                <!--Derecha: Modos y Secuencia -->
                 <div class="col-md-6 mb-4">
                     <h5 class="section-title">> Sequence & Special Modes</h5>
                     
-                    <!-- Control de Secuencia -->
+                    <!--Secuencia -->
                     <div class="input-group mb-3">
                         <input type="text" id="sequence-input" class="form-control terminal-input" placeholder="Ej: 0, 45, 90, 180">
                         <button class="btn btn-outline-warning" id="send-sequence-btn">> RUN SEQ</button>
                     </div>
 
-                    <!-- Botones de Modos Especiales -->
+                    <!--Modos Especiales -->
                     <div class="d-grid gap-2">
                         <button class="btn btn-outline-info" data-mode="wiper">> WIPER MODE</button>
                         <button class="btn btn-outline-info" data-mode="pulse">> PULSE MODE</button>
